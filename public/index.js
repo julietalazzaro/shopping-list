@@ -1,15 +1,3 @@
-let listado__item = `<div class="listado__item">
-  <div class="listado__item-cabecera">
-    <i class="fas listado__img"></i>
-    <h3 class="listado__titulo">item 1</h3>
-    <p>asdasdasdasd</p>
-  </div>  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-    <i class="fas fa-info listado__infobtn"></i>
-  </button>      
-</div > `;
-
 const iconos = [
   "fa-random",
   "fa-hamburger",
@@ -40,7 +28,6 @@ let iconoDetalle = document.getElementById("iconoDetalle");
 let descripcionDetalle = document.getElementById("descripcionDetalle");
 
 let listado = document.getElementById("listado");
-
 let empty = true;
 
 btnGuardarItem.addEventListener("click", function () {
