@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Reto semanal 02 | Pagina de Podcast  9 3/4 para programa Summerhack EscuelaDevRock">
+    <meta name="keywords" content="podcast, 934, harry potter, summerhack, escueladevrock">
+    <meta name="author" content="julietalazzaro">
+    <meta name="copyright" content="Julieta Lazzaro 2021">
+
+
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/94386a8584.js" crossorigin="anonymous"></script>
+  
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;500;700&family=Roboto:wght@100;400;700&display=swap"
+    rel="stylesheet">
+  
+  <!-- Icono -->
+  <link rel="shortcut icon" href="img/screencart.svg" type="image/x-icon">
+  
+  <!-- Robots -->
+  <meta name="robots" content="index nofollow" />
+  
+  <!-- Facebook card -->
+  <meta property="al:web:url" content="https://podcast-934.web.app" />
+  <meta property="og:url" content="https://podcast-934.web.app/" />
+  <meta property="og:title" content="Podcast 9 3/4" />
+  <meta property="og:description"
+    content="Reto semanal 02 | Pagina de Podcast 9 3/4 para programa Summerhack EscuelaDevRock" />
+  <meta property="og:image" content="https://podcast-934.web.app/img/podcast.webp" />
+  <meta property="og:image.alt" content="Podcast 9 3/4" />
+  <meta property="og:type" content="music.podcast" />
+  
+  <!-- Twitter card -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="@julietalazzaro" />
+  <meta property="twitter:creator" content="@julietalazzaro" />
+  <meta property="twitter:title" content="Podcast 9 3/4" />
+  <meta property="twitter:description"
+    content="Reto semanal 03 | Pagina de Podcast 9 3/4 para programa Summerhack EscuelaDevRock" />
+  <meta property="twitter:image" content="https://podcast-934.web.app/img/logo.png" />
+  <meta property="twitter:url" content="https://podcast-934.web.app/" />
+  
+  
+  <title>Shopping list</title>
+</head>
+
+
+<body>
+
+  
+  <header class="header">
+    <img class="header__logo" src="img/screencart.svg" alt="Logo ecommerce">
+    <h1 class="header__title">&nbsp;Shopping List</h1>
+  </header>
+  <section class="principal" >
+    <section class="modales">
+      <!-- Modal Agregar item-->
+      <div class="modal-dialog modal-fullscreen" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalAgregarLabel">Agrega tu item a la lista</h5>
+              <button id="btnCruzModalGuardado" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation">
+                <div class="form-floating">
+                  <input class="form-control" list="titulos" id="titulo" placeholder="Ingrese el titulo para su item"
+                    required>
+                  <datalist id="titulos">
+                    <option value="Arroz">
+                    <option value="Carne">
+                    <option value="Leche">
+                    <option value="Fideos">
+                    <option value="Verduras">
+                    <option value="Jabon">
+                    <option value="Teclado">
+                    <option value="Queso">
+                    <option value="Yogurt">
+                  </datalist>
+                  <label for="titulo" class="form-label">Titulo</label>
+                  <div id="desctitulo" class="form-text">Introduzca el titulo para su item</div>
+                  <br>
+                </div>
+                <div class="form-floating">
+                  <select id="categoria" class="form-select" aria-label="Default select example">
+                    <option value="0" selected>Varios</option>
+                    <option value="1">Alimentos</option>
+                    <option value="2">Entretenimiento</option>
+                    <option value="3">Frutas y verduras</option>
+                    <option value="4">Jardin</option>
+                    <option value="5">Lacteos</option>
+                    <option value="6">Limpieza</option>
+                    <option value="7">Ropa</option>
+                    <option value="8">Tecnologia</option>
+                  </select>
+                  <label for="categoria">Categoria</label>
+                  <div id="desccategoria" class="form-text">Elija la categoria que mejor describa su item</div>
+                </div>
+                <br>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Escriba aqui mas detalles de su compra" id="descripcion"
+                    style="height: 100px"></textarea>
+                  <label for="descripcion">Descripcion</label>
+                  <div id="descdescripcion" class="form-text">Escriba aqui mas detalles de su compra</div>
+                </div>
+                <div id="alertComplete" class="alert alert-danger" role="alert">
+                  Debes ponerle un titulo a tu item
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                id="btnCerrarModalGuardado">Cerrar</button>
+              <button type="submit" class="btn btn-primary" id="btnGuardarItem">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Detalle item-->
+      <div class="modal fade" id="modalDetalleListado" tabindex="-1" aria-labelledby="modalDetalleListado"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalDetalleListadoLabel">Item </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal__detalle-item">
+              <i id="iconoDetalle" class="fas iconoDetalle"></i>
+              <h3 id="tituloDetalle" class="tituloDetalle"><strong>hola</strong></h3>
+              <p id="descripcionDetalle" class="descripcionDetalle">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Alias numquam aliquid provident amet commodi! Modi sunt magnam sint! Est, inventore.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <button id="btmHomeModal" type="button" class="btn btn-primary home__btnmodal" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+        +
+      </button>
+
+    </section>
+
+    <section id="empty" class="empty">
+      <img class="empty__img" src="img/sadbox.gif" alt="">
+      <h2 class="empty__title">A&uacute;n no tienes items</h2>
+    </section>
+
+   <section id="listado" class="listado">
+      <!-- <div class="listado__item">
+        <div class="listado__item-cabecera">
+          <i class="fas fa-toilet-paper listado__item__img"></i>
+          <h3 class="listado__item-titulo">item 1</h3>
+          <P class="listado__item-desc">asdkjaoldsajksndalkdsnjlkn</P>
+        </div>  
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalDetalleListado">
+          <i class="fas fa-info listado__infobtn"></i>
+        </button>      
+      </div> -->
+    </section>
+  
+  </section>
+ 
+      
+ 
+  <script src="index.js"></script>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  
+</body>
+
+</html>
