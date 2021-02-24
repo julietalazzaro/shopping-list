@@ -133,3 +133,18 @@ function screenTest(e) {
 }
 mql.addListener(screenTest);
 screenTest(mql);
+
+// Execute a function when the user releases a key on the keyboard
+titulo.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+    btnGuardarItem.click();
+  }
+});
+
+descripcion.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    btnGuardarItem.click();
+  }
+});
