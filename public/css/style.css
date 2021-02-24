@@ -159,11 +159,11 @@ body {
 .listado__item-titulo {
   border-radius: 5px;
   display: inline;
+  hyphens: auto;
+  overflow-wrap: break-word;
   padding-left: 20px;
   width: 80%;
-  overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
 }
 
 .listado__infobtn {
@@ -194,55 +194,56 @@ body {
 .tituloDetalle {
   color: #5ab3f1;
   font-weight: 700;
+  hyphens: auto;
   margin-bottom: 20px;
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
+  text-align: center;
   width: 80%;
+  word-wrap: break-word;
 }
 .descripcionDetalle {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
   hyphens: auto;
+  overflow-wrap: break-word;
   width: 98%;
+  word-wrap: break-word;
 }
 .alert-danger {
-  margin-top: 10px;
   display: none;
+  margin-top: 10px;
 }
 
 /* ---------------------------------------------- */
 
 @media (min-width: 1024px) {
   .principal {
+    align-items: center;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    align-items: center;
     min-height: 83vh;
   }
   .modales {
-    width: 35%;
     border-right: solid 0.5px #cecece;
+    width: 35%;
   }
   .home__btnmodal {
     display: none;
   }
   .modal-fullscreen {
-    width: 100vw;
     max-width: -webkit-fill-available;
+    width: 100vw;
   }
   .empty {
     width: 60%;
   }
 
   .listado {
-    flex-basis: 70%;
-    width: 60%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: 520px;
     align-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 70%;
+    justify-content: flex-start;
+    min-height: 520px;
+    width: 60%;
   }
 
   .listado__item-titulo {

@@ -1,6 +1,7 @@
 const iconos = [
   "fa-random",
   "fa-hamburger",
+  "fa-drumstick-bite",
   "fa-laugh-beam",
   "fa-apple-alt",
   "fa-seedling",
@@ -8,6 +9,7 @@ const iconos = [
   "fa-toilet-paper",
   "fa-tshirt",
   "fa-tv",
+  "fa-carrot",
 ];
 
 let sectionEmpty = document.getElementById("empty");
@@ -36,10 +38,8 @@ btnGuardarItem.addEventListener("click", function () {
     alertComplete.style.display = "block";
   } else {
     alertComplete.style.display = "none";
-
     // Arma y devuelve el item a agregar al layout
     let listado__item = armarListadoItem();
-
     //Cargar el item al listado existente
     listado.innerHTML += listado__item;
 
@@ -49,22 +49,17 @@ btnGuardarItem.addEventListener("click", function () {
       sectionEmpty.style.display = "none";
       sectionListado.style.display = "flex";
     }
-
     //Reiniciar el formulario
     titulo.value = "";
     categoria.selectedIndex = 0;
     descripcion.value = "";
-
     //Cerrar el modal
     btnCerrarModalGuardado.click();
   }
 });
 
 listado.addEventListener("click", function (e) {
-  if (
-    e.target.getAttribute("id") == "infobtn" ||
-    e.target.getAttribute("data-itembtn") == "itembtn"
-  ) {
+  if (e.target.getAttribute("data-itembtn") == "itembtn") {
     let item = document.getElementById(e.target.getAttribute("data-itemid"));
 
     modalLabel.innerHTML = "Item " + item.getAttribute("data-itemcabecera");
@@ -101,7 +96,7 @@ function armarListadoItem() {
   }-btn" type="button" class="btn btn-secondary btnDetalleListado" data-itemid="listado__item${
     listado.childElementCount + 1
   }"  data-itembtn="itembtn" data-bs-toggle="modal" data-bs-target="#modalDetalleListado">
-    <i class="fas fa-info listado__infobtn"  data-itemid="listado__item${
+    <i class="fas fa-info listado__infobtn" data-itembtn="itembtn" data-itemid="listado__item${
       listado.childElementCount + 1
     }" id="infobtn"></i>
   </button>      
