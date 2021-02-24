@@ -127,6 +127,7 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   padding: 20px;
+  width: 100%;
 }
 .listado__item {
   background-color: #89c9f5; /* #ffb933;*/
@@ -145,7 +146,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  width: 80%;
+  width: 85%;
 }
 
 .listado__item-img {
@@ -159,6 +160,10 @@ body {
   border-radius: 5px;
   display: inline;
   padding-left: 20px;
+  width: 80%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .listado__infobtn {
@@ -190,8 +195,17 @@ body {
   color: #5ab3f1;
   font-weight: 700;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  width: 80%;
 }
-
+.descripcionDetalle {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  width: 98%;
+}
 .alert-danger {
   margin-top: 10px;
   display: none;
@@ -224,9 +238,21 @@ body {
 
   .listado {
     flex-basis: 70%;
+    width: 60%;
     justify-content: flex-start;
     align-items: flex-start;
     min-height: 520px;
     align-content: flex-start;
+  }
+
+  .listado__item-titulo {
+    width: 82%;
+  }
+  .header {
+    height: 100px;
+  }
+
+  .header__logo {
+    height: 80px;
   }
 }
