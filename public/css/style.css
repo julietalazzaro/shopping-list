@@ -129,7 +129,11 @@ body {
   padding: 20px;
   width: 100%;
 }
+#borrarListadoBtn {
+  order: 10;
+}
 .listado__item {
+  order: 1;
   background-color: #89c9f5; /* #ffb933;*/
   align-items: center;
   border-radius: 5px;

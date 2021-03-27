@@ -24,13 +24,25 @@ let alertComplete = document.getElementById("alertComplete");
 let modalAgregar = document.getElementById("modalAgregar");
 let modalDetalleListado = document.getElementById("modalDetalleListado");
 let modalLabel = document.getElementById("modalDetalleListadoLabel");
-
+let borrarListadoBtn = document.getElementById("borrarListadoBtn");
 let tituloDetalle = document.getElementById("tituloDetalle");
 let iconoDetalle = document.getElementById("iconoDetalle");
 let descripcionDetalle = document.getElementById("descripcionDetalle");
 
 let listado = document.getElementById("listado");
 let empty = true;
+let listado__item = "";
+
+let listadoStorage = "";
+listadoStorage = localStorage.getItem("listaStorage");
+if (listadoStorage !== null) {
+  listado.innerHTML += listadoStorage;
+  empty = false;
+  sectionEmpty.style.display = "none";
+  sectionListado.style.display = "flex";
+} else {
+  listadoStorage = "";
+}
 
 btnGuardarItem.addEventListener("click", function () {
   // Muestra alerta si no completo el titulo
@@ -39,9 +51,13 @@ btnGuardarItem.addEventListener("click", function () {
   } else {
     alertComplete.style.display = "none";
     // Arma y devuelve el item a agregar al layout
-    let listado__item = armarListadoItem();
+    listado__item = armarListadoItem();
     //Cargar el item al listado existente
     listado.innerHTML += listado__item;
+
+    //Guarda el item en local storage
+    listadoStorage = listadoStorage.concat(listado__item);
+    localStorage.setItem("listaStorage", listadoStorage);
 
     //Ocultar ventana de vacio y Mostrar listado
     if (empty) {
@@ -68,36 +84,48 @@ listado.addEventListener("click", function (e) {
     iconoDetalle.setAttribute("class", iconClass);
     descripcionDetalle.innerHTML = item.getAttribute("data-itemdesc");
   }
+  if (e.target.getAttribute("id") == "borrarListadoBtn") {
+    localStorage.clear();
+    listadoStorage = "";
+    listado.innerHTML = `<button id="borrarListadoBtn" type="button" class="btn btn-secondary">
+     Borrar listado
+    </button>`;
+    empty = true;
+    sectionEmpty.style.display = "flex";
+    sectionListado.style.display = "none";
+    console.log("borro");
+  }
 });
 
 function armarListadoItem() {
-  let listado__item = `<div class="listado__item" id="listado__item${
-    listado.childElementCount + 1
-  }" data-itemcabecera="${listado.childElementCount + 1}" data-itemtitulo="${
+  let listado__item = "";
+  listado__item = `<div class="listado__item" id="listado__item${
+    listado.childElementCount
+  }" data-itemcabecera="${listado.childElementCount}" data-itemtitulo="${
     titulo.value
   }" data-itemimg="${iconos[categoria.value]}" data-itemdesc="${
     descripcion.value
   }">
   <div class="listado__item-cabecera id="listado__item${
-    listado.childElementCount + 1
+    listado.childElementCount
   }-cabecera">
-    <i id="listado__item${listado.childElementCount + 1}-img" class="fas ${
+    <i id="listado__item${listado.childElementCount}-img" class="fas ${
     iconos[categoria.value]
   } listado__item-img"></i>    
   <h3 id="listado__item${
-    listado.childElementCount + 1
+    listado.childElementCount
   }-titulo" class="listado__item-titulo">${titulo.value}</h3>
     <p id="listado__item${
-      listado.childElementCount + 1
+      listado.childElementCount
     }-desc" class="listado__item-desc">${descripcion.value}</p>
   </div>  
   <button id="listado__item${
-    listado.childElementCount + 1
+    listado.childElementCount
   }-btn" type="button" class="btn btn-secondary btnDetalleListado" data-itemid="listado__item${
-    listado.childElementCount + 1
+    listado.childElementCount
   }"  data-itembtn="itembtn" data-bs-toggle="modal" data-bs-target="#modalDetalleListado">
     <i class="fas fa-info listado__infobtn" data-itembtn="itembtn" data-itemid="listado__item${
-      listado.childElementCount + 1
+      listado.childElementCount
     }" id="infobtn"></i>
   </button>      
   </div > `;
