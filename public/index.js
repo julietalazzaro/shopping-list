@@ -93,7 +93,6 @@ listado.addEventListener("click", function (e) {
     empty = true;
     sectionEmpty.style.display = "flex";
     sectionListado.style.display = "none";
-    console.log("borro");
   }
 });
 
@@ -136,7 +135,6 @@ function armarListadoItem() {
 var mql = window.matchMedia("(min-width: 1024px)");
 
 function screenTest(e) {
-  console.log(e);
   if (e.matches) {
     /* Para desktop */
     modalAgregar.setAttribute("class", "modal-dialog modal-fullscreen");
